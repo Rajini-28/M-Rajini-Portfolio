@@ -1,133 +1,182 @@
-/* styles.css — dark, modern, responsive */
-:root{
-  --bg:#0f1115;
-  --card:#121217;
-  --muted:#9aa0a6;
-  --accent1:#7c4dff;
-  --accent2:#00d4ff;
-  --glass: rgba(255,255,255,0.04);
-  --radius:16px;
-  --max-width:1000px;
-  --gap:18px;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+/* ===== General Styling ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background: linear-gradient(180deg, rgba(15,17,21,1) 0%, rgba(10,12,14,1) 100%);
-  color:#e6eef8;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+body {
+  background: linear-gradient(120deg, #fdfbfb, #ebedee);
+  color: #333;
 }
 
-/* layout container */
-.container{
-  width:100%;
-  max-width:var(--max-width);
-  padding:28px;
+/* ===== Header ===== */
+header {
+  background: linear-gradient(90deg, #004aad, #00b4db);
+  color: white;
+  text-align: center;
+  padding: 2.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideDown 1s ease-in-out;
 }
 
-/* header */
-.site-header{
-  width:100%;
-  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-bottom:1px solid rgba(255,255,255,0.03);
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter: blur(6px);
-}
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:var(--gap);
-}
-.brand .name{
-  margin:0;
-  font-size:1.2rem;
-  letter-spacing:0.6px;
-}
-.brand .tag{
-  margin:2px 0 0 0;
-  color:var(--muted);
-  font-size:0.85rem;
+header h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
 }
 
-/* nav */
-.nav{display:flex;align-items:center;}
-.nav-toggle{
-  display:none;
-  background:transparent;border:0;color:inherit;font-size:1.25rem;
-}
-.nav-list{
-  list-style:none;
-  display:flex;
-  gap:14px;
-  margin:0;
-  padding:0;
-}
-.nav-list a{
-  color:var(--muted);
-  text-decoration:none;
-  font-size:0.95rem;
-  padding:8px 10px;
-  border-radius:10px;
-}
-.nav-list a:hover{color:#ffffff;background:rgba(255,255,255,0.03)}
-
-/* cards */
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius:var(--radius);
-  padding:18px;
-  margin:18px 0;
-  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
-  border:1px solid rgba(255,255,255,0.03);
-}
-.card h2{margin-top:0}
-
-/* chips */
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{
-  padding:6px 10px;
-  border-radius:999px;
-  background:var(--glass);
-  color:var(--muted);
-  font-size:0.85rem;
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
-/* projects */
-.projects{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.projects li{padding:10px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00))}
-
-/* contact card */
-.contact-card a{color:var(--accent2);text-decoration:none}
-.contact-card a:hover{text-decoration:underline}
-
-/* footer */
-.site-footer{
-  width:100%;
-  padding:18px 0;
-  color:var(--muted);
-  text-align:center;
-  margin-top:auto;
-  border-top:1px solid rgba(255,255,255,0.02);
-  background:transparent;
+/* ===== Navigation ===== */
+nav {
+  background-color: #003580;
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* responsive */
-@media (max-width:800px){
-  .header-inner{flex-direction:row;align-items:center}
-  .nav-toggle{display:inline-block}
-  .nav-list{position:absolute;right:20px;top:64px;background:var(--card);flex-direction:column;padding:10px;border-radius:12px;display:none;min-width:170px;border:1px solid rgba(255,255,255,0.03)}
-  .nav-list.show{display:flex}
-  .brand .name{font-size:1rem}
-  .container{padding:18px}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+/* ===== Section Container ===== */
+section {
+  max-width: 950px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Headings ===== */
+h2 {
+  font-size: 1.8rem;
+  background: linear-gradient(90deg, #004aad, #00b4db, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #004aad, #00b4db);
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/* ===== Lists & Text ===== */
+ul {
+  list-style-type: none;
+  padding-left: 10px;
+  line-height: 1.8;
+}
+
+ul li {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+b {
+  color: #004aad;
+}
+
+/* ===== Education Section ===== */
+.education-item {
+  border-left: 4px solid #00b4db;
+  padding-left: 15px;
+  margin: 1.2rem 0;
+  position: relative;
+}
+
+.education-item::before {
+  content: "🎓";
+  position: absolute;
+  left: -35px;
+  top: 0;
+  font-size: 1.5rem;
+  color: #004aad;
+}
+
+.education-item h3 {
+  color: #004aad;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.education-item span {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ===== Contact Links ===== */
+#contact a {
+  color: #0072ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#contact a:hover {
+  color: #00b4db;
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  background: linear-gradient(90deg, #004aad, #0072ff);
+  color: white;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Animations ===== */
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  section {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
 }
